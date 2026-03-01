@@ -2,8 +2,9 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Gửi Ngân 💙</title>
+  <title>Ghi gì cũng được</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       height: 100vh;
@@ -11,63 +12,97 @@
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, Arial, sans-serif;
     }
     .box {
       background: white;
-      padding: 30px 20px;
-      border-radius: 16px;
+      padding: 28px 22px 30px;
+      border-radius: 18px;
       text-align: center;
-      width: 80%;
-      max-width: 320px;
+      width: 85%;
+      max-width: 360px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      color: #ff5c8a;
+    }
     input {
-      width: 90%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-bottom: 12px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
       font-size: 16px;
+      outline: none;
     }
     button {
-      padding: 10px 16px;
+      margin-top: 12px;
+      padding: 12px 16px;
       border: none;
-      border-radius: 10px;
-      background: #ff6f91;
+      border-radius: 12px;
+      background: #ff5c8a;
       color: white;
       font-size: 16px;
       cursor: pointer;
+      width: 100%;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      box-shadow: 0 6px 0 #d94b74;
     }
-    p {
-      margin-top: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #ff4d6d;
+    button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #d94b74;
+    }
+    #output {
+      margin-top: 18px;
+      font-size: 20px;
+      color: #ff3b73;
+      min-height: 28px;
+      transition: all 0.3s ease;
+    }
+    .heart {
+      position: fixed;
+      bottom: 20px;
+      font-size: 20px;
+      animation: fly 1.5s ease-out forwards;
+      pointer-events: none;
+    }
+    @keyframes fly {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120px) scale(1.4); opacity: 0; }
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <h3>Nhập gì cũng được nè 💌</h3>
-    <input id="inputText" placeholder="Nhập tên hoặc gì cũng được..." />
-    <br />
-    <button onclick="showLove()">Bấm vô nè</button>
-    <p id="result"></p>
+    <h1>Nhập gì cũng được</h1>
+    <input id="input" placeholder="Nhập gì cũng được..." />
+    <button onclick="showMessage()">Bấm gì cũng được</button>
+    <div id="output"></div>
   </div>
 
   <script>
     const messages = [
-      "Ngân dễ thương quá á 🥰",
-      "Ngân cười cái là tim tan chảy liền 😳",
-      "Ngân mà buồn là anh buồn ké luôn đó 😢",
-      "Ngân xuất hiện cái là cả ngày thấy dễ thương hẳn ra 💖",
-      "Tự nhiên thấy nhớ Ngân ghê 😗"
+      "Ngân dễ thương quá á 😳",
+      "Ngân cười là anh thấy nắng lên ☀️",
+      "Tự nhiên thấy nhớ Ngân ghê",
+      "Chắc anh nghiện Ngân mất rồi",
+      "Ngân xuất hiện là tim anh lag nhẹ 💓"
     ];
 
-    function showLove() {
-      const random = messages[Math.floor(Math.random() * messages.length)];
-      document.getElementById("result").innerText = random;
+    function showMessage() {
+      const output = document.getElementById("output");
+      const msg = messages[Math.floor(Math.random() * messages.length)];
+      output.textContent = msg;
+
+      // tạo tim bay
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 80 + 10 + "%";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 1500);
     }
   </script>
 </body>
