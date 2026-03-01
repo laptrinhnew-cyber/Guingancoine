@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gửi Ngân 💙</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+    }
+    .box {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      text-align: center;
+      width: 80%;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 10px;
+      background: #ff6f91;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    p {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4d6d;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>Nhập gì cũng được nè 💌</h3>
+    <input id="inputText" placeholder="Nhập tên hoặc gì cũng được..." />
+    <br />
+    <button onclick="showLove()">Bấm vô nè</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const messages = [
+      "Ngân dễ thương quá á 🥰",
+      "Ngân cười cái là tim tan chảy liền 😳",
+      "Ngân mà buồn là anh buồn ké luôn đó 😢",
+      "Ngân xuất hiện cái là cả ngày thấy dễ thương hẳn ra 💖",
+      "Tự nhiên thấy nhớ Ngân ghê 😗"
+    ];
+
+    function showLove() {
+      const random = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById("result").innerText = random;
+    }
+  </script>
+</body>
+</html>
